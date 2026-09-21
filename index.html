@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10151a">
+  <meta name="description" content="A short pause before you send something you may regret.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>Moonhold · take a minute</title>
+</head>
+<body>
+  <main class="shell">
+    <header><span class="moon" aria-hidden="true">☾</span><span>moonhold</span><button id="clear-note" class="quiet" type="button">Clear note</button></header>
+    <section class="intro" id="intro">
+      <p class="eyebrow">A SMALL PAUSE</p>
+      <h1>Don’t send it<br><em>yet.</em></h1>
+      <p>Put the phone down for a few minutes. Write here if you need to get it out. Nothing leaves this device.</p>
+      <div class="durations" aria-label="Choose a pause length">
+        <button data-minutes="5" type="button">5 min</button>
+        <button data-minutes="10" type="button" autofocus>10 min</button>
+        <button data-minutes="20" type="button">20 min</button>
+      </div>
+      <button id="start" class="primary" type="button">Start a 10 minute hold</button>
+      <p class="fine-print">This cannot block Messenger, Discord or other apps. For a real device block, use Focus or Screen Time too.</p>
+    </section>
+    <section id="holding" class="holding" hidden aria-live="polite">
+      <p class="eyebrow">HOLD IN PROGRESS</p>
+      <output id="timer" aria-label="Time remaining">10:00</output>
+      <p id="status">Stay here. You can change your mind later.</p>
+      <button id="end" class="quiet" type="button">End hold early</button>
+    </section>
+    <section class="notepad" aria-labelledby="note-title">
+      <div><p class="eyebrow" id="note-title">WRITE, DON’T SEND</p><span id="save-state" role="status">Saved on this device</span></div>
+      <label class="sr-only" for="note">Private note</label>
+      <textarea id="note" maxlength="2000" placeholder="Say it here first. Come back after the hold."></textarea>
+    </section>
+    <footer><a href="tel:112">Emergency: call 112</a><span>no account · no tracking</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
